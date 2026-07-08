@@ -1,0 +1,14 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-125);
+    padding: var(--spacing-150) var(--spacing-250);
+    border: none;
+    border-radius: var(--radius-full);
+
+    &--primary {
+        background-color: var(--orange-400);
+        color: var(--neutral-900);
+    }
+}
