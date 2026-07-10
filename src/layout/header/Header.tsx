@@ -1,3 +1,4 @@
+import './Header.scss';
 import logoSmall from '../../assets/images/logo-small.svg';
 import logoLarge from '../../assets/images/logo-large.svg';
 import iconPlus from '../../assets/images/icon-plus.svg';
