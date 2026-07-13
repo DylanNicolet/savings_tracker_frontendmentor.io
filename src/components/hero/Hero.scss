@@ -1,3 +1,51 @@
 .hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
     
+    &__total,
+    &__active-goals,
+    &__completed-goals {
+        padding: var(--spacing-200);
+        border-radius: var(--radius-16);
+
+        p {
+            @include text-preset-5;
+            margin-bottom: var(--spacing-400);
+        }
+
+        b {
+            @include text-preset-1-mobile;
+        }
+    }
+    
+    &__active-goals,
+    &__completed-goals {
+        background-color: var(--neutral-800);
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: url('../../assets/images/pattern-star.svg');
+            position: absolute;
+            right: -15%;
+            bottom: -80%;
+        }
+    }
+
+    &__total {
+        background-image: linear-gradient(to right, var(--orange-700), var(--orange-400));
+    }
+
+    &__active-goals {
+        b {
+            color: var(--orange-400);
+        }
+    }
+
+    &__completed-goals {
+        b {
+            color: var(--green-500);
+        }
+    }
 }

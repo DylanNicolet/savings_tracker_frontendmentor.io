@@ -1,6 +1,12 @@
 header {
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-200);
+    padding: var(--spacing-150) var(--spacing-200);
     border-bottom: 1px solid var(--neutral-800);
+    
+    picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -8,7 +8,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "${path.resolve(__dirname, 'src/styles/breakpoints').replace(/\\/g, '/')}" as *;\n`
+        additionalData: `
+          @use "${path.resolve(__dirname, 'src/styles/breakpoints').replace(/\\/g, '/')}" as *;\n
+          @use "${path.resolve(__dirname, 'src/styles/fonts').replace(/\\/g, '/')}" as *;
+        `
       }
     }
   }

@@ -1,3 +1,5 @@
+@use './fonts' as *;
+
 .btn {
     display: flex;
     justify-content: center;
@@ -10,5 +12,6 @@
     &--primary {
         background-color: var(--orange-400);
         color: var(--neutral-900);
+        @include text-preset-5;
     }
 }
