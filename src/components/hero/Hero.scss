@@ -3,25 +3,29 @@
     flex-direction: column;
     gap: var(--spacing-200);
     
+    @include breakpoint(tablet) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: var(--spacing-300);
+    }
+
+    @include breakpoint(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+
     &__total,
     &__active-goals,
     &__completed-goals {
-        padding: var(--spacing-200);
-        border-radius: var(--radius-16);
-
-        p {
+        h2 {
             @include text-preset-5;
             margin-bottom: var(--spacing-400);
-        }
-
-        b {
-            @include text-preset-1-mobile;
         }
     }
     
     &__active-goals,
     &__completed-goals {
-        background-color: var(--neutral-800);
         position: relative;
         overflow: hidden;
 
@@ -34,18 +38,30 @@
     }
 
     &__total {
-        background-image: linear-gradient(to right, var(--orange-700), var(--orange-400));
+        @include breakpoint(tablet) {
+            grid-column: 1 / 3;
+        }
     }
 
     &__active-goals {
-        b {
+        p {
             color: var(--orange-400);
         }
     }
 
     &__completed-goals {
-        b {
+        p {
             color: var(--green-500);
+        }
+    }
+
+    &__barchart-container {
+        @include breakpoint(tablet) {
+            grid-column: 1 / 3;
+        }
+
+        @include breakpoint(desktop) {
+            grid-column: 1 / 5;
         }
     }
 }

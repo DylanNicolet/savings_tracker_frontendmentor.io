@@ -1,24 +1,27 @@
+import BarChart from '../Bar-chart/BarChart';
 import './Hero.scss';
 
 export default function Hero() {
     return (
         <section className="hero container">
-            <div className="hero__total">
-                <p>Total savings</p>
-                <b>$11,249.00</b>
+            <article className="hero__total card card--primary">
+                <h2>Total savings</h2>
+                <p>$11,249.00</p>
+            </article>
+
+            <article className="hero__active-goals card">
+                <h2>Active goals</h2>
+                <p>7</p>
+            </article>
+
+            <article className="hero__completed-goals card">
+                <h2>Goals completed</h2>
+                <p>2</p>
+            </article>
+
+            <div className='hero__barchart-container'>
+                <BarChart />
             </div>
-
-            <div className="hero__active-goals">
-                <p>Active goals</p>
-                <b>7</b>
-            </div>
-
-            <div className="hero__completed-goals">
-                <p>Goals</p>
-                <b>2</b>
-            </div>
-
-
         </section>
     )
 }

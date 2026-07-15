@@ -1,0 +1,44 @@
+.bar-chart {
+    h2 {
+        @include text-preset-4;
+        margin-bottom: var(--spacing-250);
+    }
+}
+
+.chart {
+    display: flex;
+    gap: var(--spacing-100);
+
+    @include breakpoint(tablet) {
+        gap: var(--spacing-200);
+    }
+
+    .monthly {
+        width: 100%;
+        text-align: center;
+
+        .bar-container {
+            height: 144px;
+            display: flex;
+            align-items: end;
+            margin-bottom: var(--spacing-125);
+
+            .bar {
+                width: 100%;
+                background-color: var(--orange-400);
+                border-radius: var(--spacing-100);
+                border: 1px solid #ff8863;
+            }
+        }
+
+        .amount {
+            @include text-preset-7;
+            color: var(--neutral-300);
+            margin-bottom: var(--spacing-050);
+        }
+
+        .month-name {
+            @include text-preset-7;
+        }
+    }
+}

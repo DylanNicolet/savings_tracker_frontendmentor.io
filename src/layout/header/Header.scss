@@ -1,8 +1,17 @@
 header {
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-150) var(--spacing-200);
+    padding: var(--spacing-150) var(--spacing-side-padding-mobile);
     border-bottom: 1px solid var(--neutral-800);
+
+    @include breakpoint(tablet) {
+        margin-bottom: var(--spacing-200);
+        padding: var(--spacing-250) var(--spacing-side-padding-tablet);
+    }
+
+    @include breakpoint(desktop) {
+        padding: var(--spacing-400) var(--spacing-side-padding-desktop);
+    }
     
     picture {
         display: flex;
