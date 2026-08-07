@@ -1,14 +1,18 @@
+@use "sass:map";
+
 $breakpoints: (
   "tablet": 768px,
   "desktop": 1200px,
 );
 
-@mixin breakpoint($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
-    
+@mixin breakpoint($name) {
+  $value: map.get($breakpoints, $name);
+  
+  @if $value {
     @media (min-width: $value) {
       @content;
     }
+  } @else {
+    @warn "The breakpoint name '#{$name}' doesn't exist in $breakpoints.";
   }
 }

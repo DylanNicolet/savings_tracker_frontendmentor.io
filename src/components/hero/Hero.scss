@@ -18,7 +18,7 @@
     &__total,
     &__active-goals,
     &__completed-goals {
-        h2 {
+        h3 {
             @include text-preset-5;
             margin-bottom: var(--spacing-400);
         }

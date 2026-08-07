@@ -45,15 +45,12 @@ export default function BarChart() {
     }, []);
 
     let monthlyData: MonthData[] = JSON.parse(JSON.stringify(initialMonthlyData));
-    let totalDepositAmount = 0;
 
     function processData() {
         data.goals.forEach(goal => {
             goal.deposits.forEach(deposit => {
                 const depositMonthName = new Date(deposit.createdAt).toLocaleString('default', { month: 'short' });
                 const targetMonth = monthlyData.find(month => month.monthName === depositMonthName);
-                
-                totalDepositAmount += deposit.amount;
 
                 if (targetMonth) {
                     targetMonth.amount += deposit.amount;
