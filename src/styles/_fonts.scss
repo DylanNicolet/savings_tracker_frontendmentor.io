@@ -50,6 +50,10 @@
   @include font-preset($size: 16px, $weight: 500, $line-height: 140%, $letter-spacing: -0.3px);
 }
 
+@mixin text-preset-5-semi-bold {
+  @include font-preset($size: 16px, $weight: 600, $line-height: 140%, $letter-spacing: -0.3px);
+}
+
 @mixin text-preset-6 {
   @include font-preset($size: 14px, $weight: 600, $line-height: 140%, $letter-spacing: -0.3px);
 }

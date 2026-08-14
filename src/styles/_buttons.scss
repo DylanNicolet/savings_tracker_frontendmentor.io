@@ -14,4 +14,10 @@
         color: var(--neutral-900);
         @include text-preset-5;
     }
+
+    &--secondary {
+        background-color: var(--neutral-600);
+        color: var(--neutral-0);
+        @include text-preset-5;
+    }
 }

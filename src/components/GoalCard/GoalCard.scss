@@ -1,0 +1,89 @@
+.goal-card {
+    display: flex;
+    flex-direction: column;
+
+    
+    .title {
+        @include text-preset-4;
+        margin-bottom: 36px;
+
+        @include breakpoint(desktop) {
+            margin-bottom: auto;
+        }
+    }
+
+    .percentage {
+        @include text-preset-1-mobile;
+        color: var(--orange-400);
+        margin-bottom: 16px;
+    }
+
+    .bar-container {
+        height: 12px;
+        width: 100%;
+        background-color: var(--neutral-700);
+        border-radius: 40px;
+        margin-bottom: 16px;
+
+        .bar {
+            height: 100%;
+            background-color: var(--orange-400);
+            border-radius: 40px;
+            width: 0;
+        }
+    }
+
+    .footer {
+        display: flex;
+        
+        .amount {
+            @include text-preset-6;
+        }
+
+        .deadline {
+            @include text-preset-6;
+            color: #bdbdbd;
+        }
+    }
+
+    &.--completed {
+        .percentage {
+            color: var(--green-500);
+        }
+
+        .bar-container .bar {
+            background-color: var(--green-500);
+        }
+    }
+
+    &.--zero {
+        .percentage {
+            color: var(--neutral-400);
+        }
+    }
+}
+
+// Exception for the first card of each block
+.goal-card:nth-child(4n + 1) {
+    background-image: linear-gradient(to right, var(--orange-700), var(--orange-400));
+
+    .percentage {
+        color: var(--neutral-0);
+    }
+
+    .bar-container {
+        background-color: var(--orange-800);
+
+        .bar {
+            background-color: var(--neutral-0);
+        }
+    }
+
+    .deadline {
+        color: var(--neutral-0);
+
+        span {
+            opacity: 0.5;
+        }
+    }
+}
