@@ -8,8 +8,31 @@ import BarChart from '../../components/BarChart/BarChart';
 
 import iconFilter from '../../assets/images/icon-filter.svg';
 import iconSort from '../../assets/images/icon-sort.svg';
+import { useState } from 'react';
 
 export default function Homepage() {
+    // States
+    const [finalDataArray, setFinalDataArray] = useState(data.goals || []);
+
+
+    let totalSavingsAmount = 0;
+    let totalActiveGoals = 0;
+    let totalCompletedGoals = 0;
+
+    data.goals.forEach(goal => {
+        goal.deposits.forEach(deposit => {
+            totalSavingsAmount += deposit.amount;
+        });
+
+        const currentAmount = goal.deposits.reduce((sum, deposit) => sum + deposit.amount, 0);
+
+        if (currentAmount < goal.target) {
+            totalActiveGoals += 1;
+        } else if (currentAmount === goal.target) {
+            totalCompletedGoals += 1;
+        };
+    });
+
     return(
         <>
             <Header />
@@ -21,17 +44,24 @@ export default function Homepage() {
     
                 <article className="hero__total card card--primary">
                     <h3>Total savings</h3>
-                    <p>$11,249.00</p>
+                    <p>
+                        ${ 
+                            totalSavingsAmount.toLocaleString('en-US', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            }) 
+                        }
+                    </p>
                 </article>
     
                 <article className="hero__active-goals card">
                     <h3>Active goals</h3>
-                    <p>7</p>
+                    <p>{ totalActiveGoals }</p>
                 </article>
     
                 <article className="hero__completed-goals card">
                     <h3>Goals completed</h3>
-                    <p>2</p>
+                    <p>{ totalCompletedGoals }</p>
                 </article>
     
                 <div className='hero__barchart-container'>
@@ -44,18 +74,18 @@ export default function Homepage() {
                 <div className='your-goals__header'>
                     <h2 className='title'>Your goals</h2>
                     <button className='btn btn--secondary'>
-                        <img src={iconFilter} alt="" />
+                        <img src={ iconFilter } alt="" />
                         Filters
                     </button>
                     <button className='btn btn--secondary'>
-                        <img src={iconSort} alt="" />
+                        <img src={ iconSort } alt="" />
                         Sort by
                     </button>
                 </div>
 
                 <div className='your-goals__goals-container'>
                     {
-                        data.goals.map((goal: Goal) => {
+                        finalDataArray.map((goal: Goal) => {
                             const currentAmount = goal.deposits.reduce((sum, deposit) => sum + deposit.amount, 0);
                             const percentage = goal.target ? Math.round((currentAmount / goal.target) * 100) : 0;
 
